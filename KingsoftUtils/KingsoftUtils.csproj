@@ -31,6 +31,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="SimpleTcp, Version=2.4.1.1, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SuperSimpleTcp.2.4.1.1\lib\net461\SimpleTcp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -41,11 +44,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseSystem\Converters.cs" />
+    <Compile Include="Http\HttpServer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="System\Switch.cs" />
+    <Compile Include="BaseSystem\Switch.cs" />
+    <Compile Include="TCP\SSTCP\AsyncServer.cs" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="TCP\" />
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

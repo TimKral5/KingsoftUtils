@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Kingsoft.Utils.System
+namespace Kingsoft.Utils.BaseSystem
 {
 	public class Switch
 	{
