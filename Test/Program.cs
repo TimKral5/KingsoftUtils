@@ -23,32 +23,16 @@ namespace Test
 		{
 			HttpServer.Init();
 
-			HttpServer.Get("/test", (string[][] vs) => 
+			HttpServer.Get("/", (MethodArgs vs) => 
 			{ 
 				return new string[2] { "{\"status\": \"200\"}", "application/json" }; 
 			});
 
-			HttpServer.Get("/test2", (string[][] vs) => 
-			{ 
-				return new string[2] { File.ReadAllText("test.html"), "text/html" }; 
-			});
+			int port = 1111;
 
-			HttpServer.Post("/test3", (string[][] vs) => 
+			string[] urls = new string[1]
 			{
-				Dictionary<string, string> dict = vs[1].HttpQueryToDictionary();
-				string res =
-					$"<h3>{dict["fname"]}</h3>"+
-					$"<h3>{dict["lname"]}</h3>";
-
-				return new string[2] { res, "text/html" };
-			});
-
-			int port = 19136;
-
-			string[] urls = new string[2]
-			{
-				$"http://127.0.0.1:{port}/",
-				$"http://192.168.3.87:{port}/"
+				$"http://127.0.0.1:{port}/"
 			};
 
 			HttpServer.Run(urls);
