@@ -3,39 +3,34 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Kingsoft.Utils.BaseSystem;
-using Kingsoft.Utils.Http;
-using System.Net;
-using System.Net.Http;
-using System.IO;
+using System.Xml;
+using Kingsoft.Utils.Graphics;
+using Kingsoft.Utils.Math.Physics;
+using Kingsoft.Utils.Math.Physics.Newton;
+using Newtonsoft.Json;
+using Kingsoft.Utils.TypeExtensions;
+using Kingsoft.Utils.KConsole;
 
 namespace Test
 {
 	class Program
 	{
-		class ObjectX
-		{
-			public string response { get; set; }
-			public string status { get; set; }
-		}
 
 		static void Main(string[] args)
 		{
-			HttpServer.Init();
-
-			HttpServer.Get("/", (MethodArgs vs) => 
-			{ 
-				return new string[2] { "{\"status\": \"200\"}", "application/json" }; 
-			});
-
-			int port = 1111;
-
-			string[] urls = new string[1]
-			{
-				$"http://127.0.0.1:{port}/"
-			};
-
-			HttpServer.Run(urls);
-        }
+			HtmlEngine.RunHtml(@""+
+"<main>"+
+"	<chart size='60' lbl='Hello World !!'>"+
+"		<item name='hello' value='15' color='{\"r\":0,\"g\":0,\"b\":255}'></item>" +
+"		<item name='world' value='12'></item>"+
+"	</chart>"+
+"	<text markup=''>test... LOL!!</text>" +
+"	<chart size='60' lbl='Hello World !!'>" +
+"		<item name='hello' value='15' color='{\"r\":0,\"g\":0,\"b\":255}'></item>" +
+"		<item name='world' value='12'></item>" +
+"	</chart>" +
+"</main>");
+			Console.ReadLine();
+		}
 	}
 }

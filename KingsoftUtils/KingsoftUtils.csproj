@@ -31,11 +31,32 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="SimpleTcp, Version=2.4.1.1, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\SuperSimpleTcp.2.4.1.1\lib\net461\SimpleTcp.dll</HintPath>
     </Reference>
+    <Reference Include="Spectre.Console, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Spectre.Console.0.44.0\lib\netstandard2.0\Spectre.Console.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.2.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.4.0\lib\netstandard2.0\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.0\lib\netstandard2.0\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.4.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,10 +65,31 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseSystem\AssemblyTools.cs" />
     <Compile Include="BaseSystem\Converters.cs" />
+    <Compile Include="KConsole\HtmlEngine.cs" />
+    <Compile Include="Delegates\Templates\DelegateTemplates.cs" />
+    <Compile Include="ExtendedTypes\ArrayPackage.cs" />
+    <Compile Include="Graphics\GraphicsHandler.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Graphics\Renderer.cs" />
+    <Compile Include="Http\HttpContentType.cs" />
     <Compile Include="Http\HttpServer.cs" />
+    <Compile Include="Http\Route.cs" />
+    <Compile Include="Http\TWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Math\Physics\Newton\NewtonPhyTools.cs" />
+    <Compile Include="Math\Physics\PhyMath.cs" />
+    <Compile Include="NewTypes\Matrix.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BaseSystem\Switch.cs" />
+    <Compile Include="TypeExtensions\Arrays\ArrayExtension.cs" />
+    <Compile Include="TypeExtensions\Arrays\ArrayObject.cs" />
+    <Compile Include="TypeExtensions\Dictionaries\DictionaryExtension.cs" />
+    <Compile Include="TypeExtensions\GeneralExtension.cs" />
+    <Compile Include="TypeExtensions\String\StringExtension.cs" />
     <Compile Include="TCP\SSTCP\AsyncServer.cs" />
   </ItemGroup>
   <ItemGroup />
