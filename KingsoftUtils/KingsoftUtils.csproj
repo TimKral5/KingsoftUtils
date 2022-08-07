@@ -9,9 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Kingsoft.Utils</RootNamespace>
     <AssemblyName>KingsoftUtils</AssemblyName>
-    <TargetFrameworkVersion>v4.7</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -80,6 +81,15 @@
     <Compile Include="Http\TWebClient.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Langs\Lexer\Basic\BasicLexer.cs" />
+    <Compile Include="Langs\Lexer\ILexer.cs" />
+    <Compile Include="Langs\Lexer\ILxSchema.cs" />
+    <Compile Include="Langs\Lexer\LexerRuntimeVariables.cs" />
+    <Compile Include="Langs\Lexer\LxSchemaArgs.cs" />
+    <Compile Include="Langs\Lexer\LxToken.cs" />
+    <Compile Include="Langs\Lexer\Basic\Schemes\BasicKeywordSchema.cs" />
+    <Compile Include="Langs\Lexer\Basic\Schemes\BasicNumberSchema.cs" />
+    <Compile Include="Langs\Lexer\Basic\Schemes\BasicStringSchema.cs" />
     <Compile Include="Math\Physics\Newton\NewtonPhyTools.cs" />
     <Compile Include="Math\Physics\PhyMath.cs" />
     <Compile Include="NewTypes\Matrix.cs" />

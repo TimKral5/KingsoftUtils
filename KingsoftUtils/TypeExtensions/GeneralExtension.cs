@@ -3,17 +3,15 @@ using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 
 namespace Kingsoft.Utils.TypeExtensions
 {
     public static class GeneralExtension
     {
-        public static string json<T>(this T obj)
+        public static string json<T>(this T obj, Newtonsoft.Json.Formatting formatting = Newtonsoft.Json.Formatting.None)
         {
-            return JsonConvert.SerializeObject(obj);
+            return JsonConvert.SerializeObject(obj, formatting);
         }
 
         public static void json<T>(this T obj, out string str)
