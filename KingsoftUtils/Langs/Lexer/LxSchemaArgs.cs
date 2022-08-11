@@ -10,6 +10,11 @@ namespace Kingsoft.Utils.Langs.Lexer
 {
     public class LxSchemaArgs
     {
+        public LxSchemaArgs()
+        {
+            //_eot = new char[0];
+        }
+
         public char Char { get; set; }
         public LxToken[] PreviousTokens { get; set; }
         public char[] EOT 

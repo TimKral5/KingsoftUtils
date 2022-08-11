@@ -138,11 +138,11 @@ namespace Kingsoft.Utils.Http
                 HttpListenerRequest req = ctx.Request;
                 HttpListenerResponse res = ctx.Response;
 
-                Console.WriteLine(req.RawUrl);
-                Console.WriteLine(req.HttpMethod);
-                Console.WriteLine(req.UserHostName);
-                Console.WriteLine(req.UserAgent);
-                Console.WriteLine();
+                //Console.WriteLine(req.RawUrl);
+                //Console.WriteLine(req.HttpMethod);
+                //Console.WriteLine(req.UserHostName);
+                //Console.WriteLine(req.UserAgent);
+                //Console.WriteLine();
 
                 bool resultFound = false;
 
@@ -181,14 +181,23 @@ namespace Kingsoft.Utils.Http
                 }
 
                 iterate(GeneralRoutes);
-                if (req.HttpMethod == "GET")
-                {
-                    iterate(GetRoutes);
-                }
 
-                if (req.HttpMethod == "POST")
+                switch (req.HttpMethod.ToLower())
                 {
-                    iterate(PostRoutes);
+                    case "get":
+                        iterate(GetRoutes);
+                        break;
+                    case "post":
+                        iterate(GetRoutes);
+                        break;
+                    case "put":
+                        iterate(PutRoutes);
+                        break;
+                    case "delete":
+                        iterate(DeleteRoutes);
+                        break;
+                    default:
+                        break;
                 }
 
                 if (!resultFound) _Data = (ErrorCodes.TryGetValue(404, out Route _route) ? _route.Function : Error_404)

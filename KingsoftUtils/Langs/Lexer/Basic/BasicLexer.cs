@@ -22,7 +22,7 @@ namespace Kingsoft.Utils.Langs.Lexer.Basic
             return this;
         }
 
-        List<LxToken> ILexer.RunLexer(string s)
+        List<LxToken> ILexer.RunLexer(string s, char[] e)
         {
             LexerRuntimeVariables _runtimeVariables = new LexerRuntimeVariables();
 
@@ -35,7 +35,8 @@ namespace Kingsoft.Utils.Langs.Lexer.Basic
                     (bool, LxToken) res = schema.CheckSchema(new LxSchemaArgs() { 
                         Char = _t[i],
                         PreviousTokens = tokens.ToArray(),
-                        RuntimeVariables = _runtimeVariables
+                        RuntimeVariables = _runtimeVariables,
+                        EOT = new char[] { ' ', '\t', '\n', ';' }
                     });
 
                     if (res.Item1) 

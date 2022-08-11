@@ -54,7 +54,7 @@ namespace Test
                 "print(\"test\");"
                 );
 
-            List<LxToken> res = lexer.RunLexer(input);
+            List<LxToken> res = lexer.RunLexer(input, new char[] { ' ', '\t', '\n', ';' });
 
             Console.WriteLine(res.json(Newtonsoft.Json.Formatting.Indented));
             Console.WriteLine(input);

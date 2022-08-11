@@ -9,6 +9,6 @@ namespace Kingsoft.Utils.Langs.Lexer
     public interface ILexer
     {
         ILexer RegisterSchema(ILxSchema schema);
-        List<LxToken> RunLexer(string str);
+        List<LxToken> RunLexer(string str, char[] eot);
     }
 }
