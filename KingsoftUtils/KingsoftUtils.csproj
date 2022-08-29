@@ -68,7 +68,11 @@
   <ItemGroup>
     <Compile Include="BaseSystem\AssemblyTools.cs" />
     <Compile Include="BaseSystem\Converters.cs" />
-    <Compile Include="KConsole\HtmlEngine.cs" />
+    <Compile Include="KsConsole\Components\ICRComponent.cs" />
+    <Compile Include="KsConsole\ConsoleRenderer.cs" />
+    <Compile Include="Http\TWebClient.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Delegates\Templates\DelegateTemplates.cs" />
     <Compile Include="ExtendedTypes\ArrayPackage.cs" />
     <Compile Include="Graphics\GraphicsHandler.cs">
@@ -78,10 +82,8 @@
     <Compile Include="Http\HttpContentType.cs" />
     <Compile Include="Http\HttpServer.cs" />
     <Compile Include="Http\Route.cs" />
-    <Compile Include="Http\TWebClient.cs">
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Langs\Lexer\Basic\BasicLexer.cs" />
+    <Compile Include="Langs\Lexer\Basic\Schemes\BasicSemicolonSchema.cs" />
     <Compile Include="Langs\Lexer\ILexer.cs" />
     <Compile Include="Langs\Lexer\ILxSchema.cs" />
     <Compile Include="Langs\Lexer\LexerRuntimeVariables.cs" />
@@ -90,6 +92,7 @@
     <Compile Include="Langs\Lexer\Basic\Schemes\BasicKeywordSchema.cs" />
     <Compile Include="Langs\Lexer\Basic\Schemes\BasicNumberSchema.cs" />
     <Compile Include="Langs\Lexer\Basic\Schemes\BasicStringSchema.cs" />
+    <Compile Include="Math\Math.cs" />
     <Compile Include="Math\Physics\Newton\NewtonPhyTools.cs" />
     <Compile Include="Math\Physics\PhyMath.cs" />
     <Compile Include="NewTypes\Matrix.cs" />
@@ -97,6 +100,7 @@
     <Compile Include="BaseSystem\Switch.cs" />
     <Compile Include="TypeExtensions\Arrays\ArrayExtension.cs" />
     <Compile Include="TypeExtensions\Arrays\ArrayObject.cs" />
+    <Compile Include="TypeExtensions\Arrays\NumberArrayExtension.cs" />
     <Compile Include="TypeExtensions\Dictionaries\DictionaryExtension.cs" />
     <Compile Include="TypeExtensions\GeneralExtension.cs" />
     <Compile Include="TypeExtensions\String\StringExtension.cs" />

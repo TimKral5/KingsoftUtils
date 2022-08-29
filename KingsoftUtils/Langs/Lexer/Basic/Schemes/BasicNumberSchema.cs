@@ -25,14 +25,14 @@ namespace Kingsoft.Utils.Langs.Lexer.Basic.Schemes
 
             for (int i = 0; i < chars.Length; i++)
             {
-                if (args.Char == chars[i]) match = true;
+                if ((char)args["lexer:vars:char"] == chars[i]) match = true;
             }
 
             if (match) openNumber = true;
 
             if (openNumber)
             {
-                if (match || args.Char == '.') currentNumber += args.Char;
+                if (match || (char)args["lexer:vars:char"] == '.') currentNumber += (char)args["lexer:vars:char"];
                 else openNumber = false;
             }
 

@@ -15,10 +15,10 @@ namespace Kingsoft.Utils.Langs.Lexer.Basic.Schemes
         {
             (bool, LxToken) result = (false, new LxToken());
 
-            if (args.Char == '"' || args.Char == '\'') openString = !openString;
+            if ((char)args["lexer:vars:char"] == '"' || (char)args["lexer:vars:char"] == '\'') openString = !openString;
             else if (openString)
             {
-                currentString += args.Char;
+                currentString += (char)args["lexer:vars:char"];
             }
             else
             {
@@ -28,6 +28,8 @@ namespace Kingsoft.Utils.Langs.Lexer.Basic.Schemes
                     currentString = "";
                 }
             }
+
+            args["lexer:vars:open_string"] = openString;
 
             return result;
         }

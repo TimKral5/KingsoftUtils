@@ -24,19 +24,27 @@ namespace Kingsoft.Utils.Langs.Lexer.Basic
 
         List<LxToken> ILexer.RunLexer(string s, char[] e)
         {
-            LexerRuntimeVariables _runtimeVariables = new LexerRuntimeVariables();
+            Dictionary<string, object> _runtimeVariables = new Dictionary<string, object>
+            {
+                ["lexer:vars:eot"] = e
+            };
 
             List<LxToken> tokens = new List<LxToken>();
             char[] _t = s.ToCharArray();
             for (int i = 0; i < _t.Length; i++)
             {
+                _runtimeVariables["lexer:vars:char"] = _t[i];
+
                 foreach (var schema in Schemes)
                 {
-                    (bool, LxToken) res = schema.CheckSchema(new LxSchemaArgs() { 
-                        Char = _t[i],
-                        PreviousTokens = tokens.ToArray(),
-                        RuntimeVariables = _runtimeVariables,
-                        EOT = new char[] { ' ', '\t', '\n', ';' }
+                    _runtimeVariables["lexer:vars:previous_tokens"] = tokens.ToArray();
+                    LxSchemaArgs _args = new LxSchemaArgs() { Lexer = this };
+
+                    _runtimeVariables["lexer:vars:args"] = _args;
+                    _args = _runtimeVariables;
+
+                    (bool, LxToken) res = schema.CheckSchema(new LxSchemaArgs() {
+                        Lexer = this
                     });
 
                     if (res.Item1) 
@@ -45,7 +53,7 @@ namespace Kingsoft.Utils.Langs.Lexer.Basic
                 }
             }
 
-            Console.WriteLine(Schemes.json());
+            Console.WriteLine(Schemes.json()); 
             return tokens;
         }
     }

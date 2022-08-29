@@ -25,12 +25,14 @@ namespace Kingsoft.Utils.Langs.Lexer.Basic.Schemes
 
             char[] word = keyword.ToCharArray();
 
-            if ((counter < word.Length) && (args.Char == word[counter]))
+            Console.WriteLine(args["lexer:vars:args"]);
+
+            if ((counter < word.Length) && ((char)args["lexer:vars:char"] == word[counter]))
             {
                 counter++;
             }
 
-            else if (args.CheckForEOT(args.Char))
+            else if (args.CheckForEOT((char)args["lexer:vars:char"]))
             {
                 if (counter == word.Length)
                 {

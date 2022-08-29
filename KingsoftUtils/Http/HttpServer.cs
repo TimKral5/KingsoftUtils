@@ -219,7 +219,6 @@ namespace Kingsoft.Utils.Http
             listener = new HttpListener();
             listener.Prefixes.Add(url);
             listener.Start();
-            Console.WriteLine("Listening for connections on {0}", url);
 
             Task listenTask = HandleIncomingConnections();
             listenTask.GetAwaiter().GetResult();

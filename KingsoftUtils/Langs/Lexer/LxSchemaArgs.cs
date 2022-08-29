@@ -12,30 +12,37 @@ namespace Kingsoft.Utils.Langs.Lexer
     {
         public LxSchemaArgs()
         {
-            //_eot = new char[0];
+            runtimeVariables = new Dictionary<string, object>();
         }
 
-        public char Char { get; set; }
-        public LxToken[] PreviousTokens { get; set; }
-        public char[] EOT 
+        private Dictionary<string, object> runtimeVariables { get; set; }
+
+        public object this[string index]
         {
-            get => _eot;
-            set => _eot = value;
+            get => runtimeVariables.ContainsKey(index) ? runtimeVariables[index] : null;
+            //get => runtimeVariables[index];
+            set => runtimeVariables[index] = value;
         }
-        private char[] _eot { get; set; }
 
         public bool CheckForEOT(char str)
         {
             bool res = false;
-            for (int i = 0; i < EOT.Length; i++)
+            char[] eot = (char[]) runtimeVariables["lexer:vars:eot"];
+
+            for (int i = 0; i < eot.Length; i++)
             {
-                if (str == EOT[i]) res = true;
+                if (str == eot[i]) res = true;
             }
 
             return res;
         }
 
-        public LexerRuntimeVariables RuntimeVariables { get; set; }
+        public static implicit operator LxSchemaArgs(Dictionary<string, object> dict)
+        {
+            LxSchemaArgs res = (LxSchemaArgs) dict["lexer:vars:args"];
+            res.runtimeVariables = dict;
+            return res;
+        }
 
         public ILexer Lexer { get; set; }
     }
